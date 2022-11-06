@@ -94,6 +94,8 @@ for n_neighbors, ax in zip([1,3,9],axes):
 axes[0].legend(loc=3)
 ```
 
+<img width="80% scr="https://user-images.githubusercontent.com/115082062/200171581-511bac63-a30b-4b80-ad81-18a029f25cae.png"/>
+
 ![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled.png)
 
 이웃 개수가 늘어날수록 결정 경계는 점점 일반화된다. 즉, 이웃을 적게 사용하면 복잡도가 높아진다.
