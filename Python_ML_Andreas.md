@@ -93,7 +93,7 @@ for n_neighbors, ax in zip([1,3,9],axes):
   ax.set_ylabel("feature1")
 axes[0].legend(loc=3)
 ```
-![Untitled 1](https://user-images.githubusercontent.com/115082062/200171581-511bac63-a30b-4b80-ad81-18a029f25cae.png)
+![Untitled](https://user-images.githubusercontent.com/115082062/200174162-467366ce-c262-405e-ac5c-6585813e023d.png)
 
 이웃 개수가 늘어날수록 결정 경계는 점점 일반화된다. 즉, 이웃을 적게 사용하면 복잡도가 높아진다.
 
@@ -146,7 +146,7 @@ for n_neighbors, ax in zip([1,3,9],axes):
 axes[0].legend(['predict', 'train', 'test'], loc='best')
 ```
 
-![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%201.png)
+![Untitled 1](https://user-images.githubusercontent.com/115082062/200174262-fd9c5802-d146-44b1-a38f-b561395134a2.png)
 
 ---
 
@@ -271,7 +271,8 @@ for model, ax in zip([LinearSVC(max_iter=5000), LogisticRegression()], axes):
 axes[0].legend()
 ```
 
-![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%202.png)
+![Untitled 2](https://user-images.githubusercontent.com/115082062/200174310-f70052e1-c43b-46a1-9f1a-95ea4258869c.png)
+
 
 두 모델은 모두 결정경계를 만들고 경계 위를 클래스 1, 아래를 클래스 0으로 분류한다. 이 두 모델은 기본적으로 리지 회귀처럼 L2 규제를 사용한다.
 
@@ -316,7 +317,7 @@ plt.xlabel('feature0')
 plt.ylabel('feature1')
 ```
 
-![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%203.png)
+![Untitled 3](https://user-images.githubusercontent.com/115082062/200174385-397ece10-2538-4632-8eb9-8531a08d668b.png)
 
 선형 모델은 학습 속도가 빠르고 예측도 빠르다. 또 하나의 장점은 회귀식을 보고 비교적 쉽게 이해할 수 있다는 점이다. 또한 샘플에 비해 특성이 많은, 즉 고차원의 데이터셋에서 잘 작동한다.
 
@@ -358,7 +359,8 @@ with open("tree.dot") as f:
   display(graphviz.Source(dot_graph))
 ```
 
-![스크린샷, 2022-04-21 15-27-06.png](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-04-21_15-27-06.png)
+![스크린샷_2022-04-21_15-27-06](https://user-images.githubusercontent.com/115082062/200174423-07ea9ce9-f3e1-4e62-aa1a-d09eb70f5879.png)
+
 
 트리를 만들 때 특성들의 중요도를 알려면 `feature_importances_` 메서드를 사용하면 된다. 중요도는 0에서 1의 값을 갖고, 1에 가까울수록 중요한 특성이다. 그러나 높은 중요도가 양성을 의미하는지 음성을 의미하는지는 알 수 없다.
 
@@ -407,7 +409,7 @@ axes[-1,-1].set_title("random forest")
 mglearn.discrete_scatter(X[:,0], X[:,1], y)
 ```
 
-![다섯 개의 랜덤 트리와 이를 평균 내어 만든 random forest](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%204.png)
+![Untitled 4](https://user-images.githubusercontent.com/115082062/200174451-535fb262-1a21-435f-8906-e8c83a03a7c8.png)
 
 다섯 개의 랜덤 트리와 이를 평균 내어 만든 random forest
 
@@ -511,7 +513,8 @@ plt.xlabel("feature0")
 plt.ylabel("feature1")
 ```
 
-![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%205.png)
+![Untitled 5](https://user-images.githubusercontent.com/115082062/200174480-fee41e56-c88c-4cc5-80a0-e2cbaf0b90b5.png)
+
 
 위 그림을 보면 선형 모델로는 두 클래스를 분류할 수 없다는 걸 알 수 있다. 그래서 두 특성을 곱한 제 3의 특성을 만들어서 3차원 공간에서 평면을 그어 결정경계를 만들어볼 것이다.
 
@@ -543,8 +546,7 @@ ax.set_xlabel("feature0")
 ax.set_ylabel("feature1")
 ax.set_zlabel("feature1**2")
 ```
-
-![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%206.png)
+![Untitled 6](https://user-images.githubusercontent.com/115082062/200174504-e503a756-be3c-47f1-ad82-d4210dd3363d.png)
 
 이것을 다시 원래 특성으로 투영해보면 SVM 모델은 더 이상 선형이 아니다.
 
@@ -558,7 +560,8 @@ plt.xlabel("feature0")
 plt.ylabel("feature1")
 ```
 
-![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%207.png)
+![Untitled 7](https://user-images.githubusercontent.com/115082062/200174547-0d3431b5-570c-445b-ae0f-25a23a75f13d.png)
+
 
 하지만 이처럼 새로운 특성을 많이 만들다보면 연산 비용이 커진다. 특성을 많이 만들지 않고서도 고차원으로 학습하는 방식을 **커널 기법(kernel trick)**이라고 한다. 실제로 데이터를 확장하지 않고 확장된 특성에 대한 데이터 포인트들의 거리를 계산한다.
 
@@ -577,7 +580,8 @@ for ax, C in zip(axes, [-1,0,3]):
 axes[0,0].legend(['class0', 'class1', 'class0 support vector', 'class1 support vector'], ncol=4, loc=(.9,1.2))
 ```
 
-![Untitled](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/Untitled%208.png)
+![Untitled 8](https://user-images.githubusercontent.com/115082062/200174572-04f2ffb3-1c5f-4979-86ed-daeb97c86db2.png)
+
 
 위 그래프를 보면, 작은 `gamma`값은 커널의 반경을 크게 하여 많은 포인트들이 가까이 있는 것으로 간주된다. 그래서 왼쪽 그림의 결정 경계는 부드럽고, `gamma`가 커질수록 하나의 포인트에 더 민감해진다.
 
@@ -592,8 +596,7 @@ axes[0,0].legend(['class0', 'class1', 'class0 support vector', 'class1 support v
 ```python
 display(mglearn.plots.plot_single_hidden_layer_graph())
 ```
-
-![스크린샷, 2022-04-26 23-23-49.png](%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8A%E1%85%A5%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%84%85%E1%85%A5%E1%84%85%E1%85%B5%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A5%E1%84%89%E1%85%B5%E1%86%AB%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC(%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%84%85%E1%85%A6%20d26933c7badb41ab858bcfedaffaceb2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-04-26_23-23-49.png)
+![스크린샷_2022-04-26_23-23-49](https://user-images.githubusercontent.com/115082062/200174585-fa0f56a8-0eaf-4e4a-9d8a-17c62f3aefbe.png)
 
 다층 퍼셉트론을 구현한 `MLPClassifer`를 적용해보자. MLP는 기본값으로 은닉 유닛을 100개 사용하는데, `hidden_layer_sizes=[00]`으로 그 수를 조절할 수 있다.
 
