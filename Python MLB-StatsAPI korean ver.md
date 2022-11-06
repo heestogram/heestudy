@@ -190,7 +190,7 @@ plt.ylabel('hits per 9 innigs')
 plt.show()
 ```
 
-![해를 거듭할수록 투고타저 현상이 심해지고 있다.](Python%20MLB-StatsAPI%2056edea75bc664ba8a06407ef0b3a2655/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/115082062/200174629-2a2a6763-18b7-45cf-bdb2-fd6e2f73a480.png)
 
 해를 거듭할수록 투고타저 현상이 심해지고 있다.
 
