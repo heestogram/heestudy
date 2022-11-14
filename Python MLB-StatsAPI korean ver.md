@@ -10,7 +10,6 @@
 
 [Home · toddrob99/MLB-StatsAPI Wiki](https://github.com/toddrob99/MLB-StatsAPI/wiki)
 
-- Function
 
 `pip`는 파이썬 패키지를 설치하거나 관리하는 시스템이다. MLB-StatsAPI 패키지를 설치해보자.
 
