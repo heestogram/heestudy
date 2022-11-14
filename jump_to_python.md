@@ -13,53 +13,53 @@
 > **목차**
 > 
 
-[02장 파이썬 프로그래밍의 기초, 자료형](#02장-파이썬-프로그래밍의-기초)
+- [02장 파이썬 프로그래밍의 기초, 자료형](#02장-파이썬-프로그래밍의-기초)
 
-[02-2 문자열 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [02-2 문자열 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[02-3 리스트 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [02-3 리스트 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[02-4 튜플 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [02-4 튜플 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[02-5 딕셔너리 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [02-5 딕셔너리 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719) 
 
-[02-6 집합 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [02-6 집합 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[02-7 불 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [02-7 불 자료형](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[02장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [02장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[03장 프로그램의 구조를 쌓는다! 제어문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+- [03장 프로그램의 구조를 쌓는다! 제어문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[03-1 if문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [03-1 if문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[03-2 while문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [03-2 while문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[03-3 for문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [03-3 for문](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[03장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [03장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[04장 프로그램의 입력과 출력은 어떻게 해야 할까?](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+- [04장 프로그램의 입력과 출력은 어떻게 해야 할까?](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[04-1 함수](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [04-1 함수](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[04-2 사용자 입력과 출력](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [04-2 사용자 입력과 출력](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[04-3 파일 읽고 쓰기](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [04-3 파일 읽고 쓰기](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[04장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [04장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[05장 파이썬 날개달기](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+- [05장 파이썬 날개달기](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[05-1 클래스](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [05-1 클래스](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[05-2 모듈](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [05-2 모듈](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[05-3 패키지](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [05-3 패키지](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[05-4 예외처리](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [05-4 예외처리](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
-[05장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
+     - [05장 연습문제](https://www.notion.so/079c7bb7dcb94229a99312f73a9d1719)
 
 ## 02장 파이썬 프로그래밍의 기초
 
