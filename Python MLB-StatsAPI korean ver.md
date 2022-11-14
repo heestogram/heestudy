@@ -167,15 +167,12 @@ statsapi.game_pace(season=datetime.now().year, sportId=1)
 statsapi.game_pace_data(season=datetime.now().year, sportId=1)
 ```
 
-<aside>
-❓ **문제.** 2008년부터 2021년까지 각 시즌의 9이닝당 안타 개수 평균을 시계열 그래프로 표현하라.
+❓ **문제.** 
+```
+2008년부터 2021년까지 각 시즌의 9이닝당 안타 개수 평균을 시계열 그래프로 표현하라.
+```
 
-</aside>
-
-<aside>
 💡 **정답.**
-
-</aside>
 
 ```python
 y_list = []
@@ -296,19 +293,15 @@ def meta(a):
 
 `leagueId`에는 AL(103), NL(104)를 적어준다.
 
-<aside>
-❓ **문제1.** 2021시즌 이닝당 투구수가 가장 낮은 10인을 출력하라.
-**문제2.** 메이저리그 커리어 통산 최다홈런 1~10위를 출력하라.
-
-</aside>
-
-<aside>
+❓ **문제1.** 
+```
+1) 2021시즌 이닝당 투구수가 가장 낮은 10인을 출력하라.
+2)메이저리그 커리어 통산 최다홈런 1~10위를 출력하라.
+```
 💡 **정답.**
 
-</aside>
-
 ```python
-#문제1
+#문제1)
 print(statsapi.league_leaders('pitchesPerInning',statGroup='pitching', limit=10, season=2021))
 Rank Name                 Team                    Value
  1   Adam Wainwright      St. Louis Cardinals     14.87
@@ -322,7 +315,7 @@ Rank Name                 Team                    Value
  9   Marcus Stroman       New York Mets           15.31
  10  Max Fried            Atlanta Braves          15.44
 
-#문제2.
+#문제2)
 print(statsapi.league_leaders('homeRuns',statGroup='batting', limit=10, statType='career'))
 Rank Name                 Team                    Value
  1   Barry Bonds          San Francisco Giants     762 
@@ -396,15 +389,11 @@ statsapi.lookup_player('ryu')
   'useName': 'Hyun Jin'}]
 ```
 
-<aside>
-❓ **문제.**  변수를 입력하면, 이름에 그 변수를 포함한 선수들만 출력하는 함수를 만들어보자 이 때  출력형식은 `Full name: 선수이름, Position: 포지션, Team: 팀 고유 번호` 로 한다.
-
-</aside>
-
-<aside>
+❓ **문제.**  
+```
+변수를 입력하면, 이름에 그 변수를 포함한 선수들만 출력하는 함수를 만들어보자 이 때  출력형식은 `Full name: 선수이름, Position: 포지션, Team: 팀 고유 번호` 로 한다.
+```
 💡 **정답.**
-
-</aside>
 
 ```python
 def player_npt(a):
@@ -578,15 +567,12 @@ atBatsPerHomeRun: 15.02
 
 `player_stats`의 출력값을 딕셔너리 형식으로 반환해준다.
 
-<aside>
-❓ **문제.** 보스턴레드삭스의 2021시즌 현역 선수들의 타율을 출력하라. 단, ‘fullName, 타율’ 형식으로 출력하라.
+❓ **문제.** 
+```
+보스턴레드삭스의 2021시즌 현역 선수들의 타율을 출력하라. 단, ‘fullName, 타율’ 형식으로 출력하라.
+```
 
-</aside>
-
-<aside>
 💡 **정답.**
-
-</aside>
 
 ```python
 for n in statsapi.get('sports_players',{'season':2021, 'gameType':'R'})['people']:
@@ -677,15 +663,11 @@ print(statsapi.schedule(date='07/09/2018',team=143,opponent=121))
 'summary': '2018-07-09 - Philadelphia Phillies (3) @ New York Mets (4) (Final)'} #경기 한줄 요약. @가 붙은 게 홈팀.
 ```
 
-<aside>
-❓ **문제**. 4월~7월 중 열린 파드리스와 메츠의 경기 결과 요약을 출력하라. 이 때 승리,패전,세이브 투수도 함께 출력하라.
-
-</aside>
-
-<aside>
+❓ **문제**.
+```
+4월~7월 중 열린 파드리스와 메츠의 경기 결과 요약을 출력하라. 이 때 승리,패전,세이브 투수도 함께 출력하라.
+```
 💡 **정답**.
-
-</aside>
 
 ```python
 for n in statsapi.schedule(start_date='04/01/2021', end_date='06/30/2021', team=138, opponent=121):
@@ -816,7 +798,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
       else:
         print(count,'name:{}'.format(stat['name']))
     ```
-    
+    ```
     1 name: airOuts  /  lookupParam: ao
     2 name: assists  /  lookupParam: a
     3 name: atBats  /  lookupParam: ab
@@ -976,6 +958,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     157 name: war
     158 name: gameDate
     159 name: verticalBreak  /  lookupParam: verticalBreak
+    ```
     
     ```python
     # 원하는 스탯명을 입력하면 그 스탯의 상세 정보를 출력해주는 함수
@@ -1014,7 +997,8 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 ```
 
 - `eventTypes` 유형
-    
+
+```
     1 pickoff_1b
     2 pickoff_2b
     3 pickoff_3b
@@ -1085,6 +1069,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     68 balk
     69 wild_pitch
     70 other_out
+```
     
 
 ### 2-4. `gameStatus`
@@ -1146,6 +1131,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 타구의 유형이다.
 
 - `hitTrajectories` 목록
+```
     
     [{'code': 'bunt_grounder', 'description': 'Bunt - Ground Ball'},
     {'code': 'bunt_line_drive', 'description': 'Bunt - Line Drive'},
@@ -1154,14 +1140,14 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     {'code': 'line_drive', 'description': 'Line Drive'},
     {'code': 'bunt_popup', 'description': 'Bunt - Popup'},
     {'code': 'popup', 'description': 'Popup'}]
-    
+```
 
 ### 2-7. `jobTypes`
 
 야구와 관련된 직업(선수, 심판, 코치, 분석원 등)을 총망라한 목록이다.
 
 - `jobTypes`
-    
+```
     Umpire
     Director of Instant Replay
     Replay Official
@@ -1180,371 +1166,11 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     Associate Manager
     Hitting Coach
     Batting Coach
-    Hitting/Bench Coach
-    Hitting/First Base Coach
-    Infield Coach
-    Hitting/Third Base Coach
-    Hitting/Bullpen Coach
-    Interim Hitting Coach
-    Interim Pitching Coach
-    Assistant Hitting Coach
-    Major League Assistant Hitting Coach
-    Pitching Coach
-    Assistant Pitching Coach
-    First Base Coach
-    First Base/Bullpen Coach
-    Third Base Coach
-    Fundamentals Coach
-    Interim Bench Coach
-    Outfield and Baserunning Coordinator
-    Bench/Catching Coach
-    Defensive Coach
-    Interim Bullpen Coach
-    Bullpen Coach
-    Director of Pitching Development & Bullpen Coach
-    Major League Coach
-    Major League Hitting Consultant
-    Senior Advisor to the President of Baseball Operations
-    Advisor, Latin America
-    Assistant Bench Coach
-    Senior Vice President/General Manager
-    Major League Pitching Strategist
-    Quality Control Coach
-    Academy Supervisor
-    Director, Player Development
-    Player Information Coach
-    Major League Player Information Coordinator
-    Bullpen Assistant
-    Complex Operations Coordinator
-    Analytics Coordinator
-    Bullpen Coordinator
-    Coach/Bullpen Catcher
-    Bullpen Catcher
-    Major League Operations Assistant/Bullpen Catcher
-    Major League Staff Coordinator
-    Catching Coach
-    Catching and Advance Scouting Coordinator
-    Defensive Coordinator and Advance Coach
-    Baserunning/Outfield and First Base Coach
-    Coach
-    Player Information Coach
-    Game Planning Coach
-    Special Assignment Coach
-    Major League administrative coach
-    Major League Replay Coordinator
-    Special Advisor
-    Special Assistant
-    Senior Baseball Advisor
-    Head Clubhouse and Equipment Manager
-    Head Coach
-    Assistant Coach
-    Auxiliary Coach
-    Trials Coach
-    Student Manager
-    Commissioner
-    League President
-    Coordinator, Run Production
-    Coordinator, Run Prevention
-    Owner
-    Field Coordinator
-    Assistand Field Coordinator
-    Part Owner
-    Infield & Baserunning Coordinator
-    President
-    President, Baseball Operations
-    President, Baseball Operations and General Manager
-    General Manager & President, Baseball Operations
-    Executive Vice President, General Manager
-    Chief Baseball Officer
-    General Manager
-    Interim General Manager
-    Assistant General Manager
-    Assistant General Manager - Research and Development
-    Assistant General Manager - Player Development
-    Senior Vice President, Baseball Operations
-    Vice President
-    Senior Pitching Coordinator
-    Vice President, Player Personnel
-    Director of Player Personnel
-    Director of Professional Scouting
-    Vice President, Scouting
-    Director of Amateur Scouting
-    Assistant Director of Amateur Scouting
-    Director of Minor League Operations
-    Director, International Scouting
-    Director of Baseball Analytics and Research
-    Specialist of International Operations and Associate Counsel
-    Vice President, International & Amateur Scouting
-    Executive Director, International Recruiting
-    Director of Player Development
-    Assistant Director, Player Development
-    Director of Medical Administration
-    Director of Research and Development
-    Special Assistant to the General Manager
-    Special Assistant to the GM and Major League Scout
-    Special Assistant to the President and CEO
-    Special Assistant to the GM and Major League Advance Scout
-    Special Assistant to Player Development
-    Scout
-    Manager, Professional Scouting
-    National Crosschecker
-    Advance Scout
-    Senior Director, Team Travel and Home Clubhouse Manager
-    Director of Team Travel
-    Director, Team Travel and Player Services
-    Director of Pitching Operations
-    Traveling Secretary
-    Coordinator, Organizational Travel
-    Coordinator, Team Travel
-    Director, Employee Assistance Program
-    Director, Team Security
-    Major League Video Coordinator
-    Manager, Video Operations
-    Video Operations
-    Video Coordinator
-    Assistant Video Coordinator
-    Special Assistant
-    Team Travel Manager
-    Baseball Operations Operator
-    Employee Assistance Program
-    Manager of Equipment Acquisitions
-    Associate Travel Director
-    Executive Security
-    Executive Director, Team Security
-    Team Security
-    Major League Consultant
-    Baseball Operations Assistant
-    Administrator, Baseball Operations
-    Staff Assistant
-    Instructor
-    Head Groundskeeper
-    Head Pitching Coordinator
-    Head Conditioning Coach
-    Mental Skills Coach
-    Performance Coach
-    Psychology Coach
-    Head Strength and Conditioning Coach
-    Strength and Conditioning Coach
-    Minor League Training Coordinator
-    Strength and Conditioning Specialist
-    Assistant Minor League Training Coordinator
-    Assistant Pitching Coordinator
-    Assistant Hitting Coordinator
-    Batting Practice Pitcher
-    Translator
-    Clubhouse Manager
-    Assistant Manager, Equipment and Clubhouse Services
-    Manager, Visiting Clubhouse
-    Assistant Strength and Conditioning Coach
-    Assistant Minor League Clubhouse Manager
-    Minor League Clubhouse Manager
-    Director, Clubhouse Operations
-    Equipment Manager
-    Equipment Manager (home)
-    Equipment Manager (road)
-    Field Director
-    Home Clubhouse Manager
-    Manager, Major League Video
-    Senior Clubhouse Manager
-    Umpires Clubhouse Manager
-    Visiting Clubhouse Manager
-    Visiting Clubhouse Manager and Equipment Manager
-    Assistant Clubhouse Manager
-    Assistant Home Clubhouse Manager
-    Assistant Visiting Clubhouse Manager
-    Clubhouse Attendant
-    Home Clubhouse Assistant
-    Assistant Clubhouse Attendant
-    Assistant Equipment Manager
-    Assistant Field Director
-    Umpires' Room Attendant
-    Mascot
-    Director, Latin American Operations
-    Conditioning Coordinator
-    Coordinator, Baserunning
-    Coordinator of Baseball Operations
-    3640
-    Coordinator, Catching
-    Coordinator, Defensive
-    Coordinator, Hitting
-    Coordinator, Minor League Instruction
-    Coordinator, Player Development
-    Pitching Coordinator
-    Coordinator, Pitching
-    Performance Coordinator
-    Director of Conditioning
-    Coordinator of Instruction
-    Latin American Field Coordinator
-    Minor League Assistant Hitting Coach
-    Minor League Catching Coordinator
-    Minor League Assistant Catching Coordinator
-    Catching Coach/Defensive Positioning
-    Minor League Assistant Hitting/Outfield Coordinator
-    Minor League Field Coordinator
-    Minor League Baserunning Coordinator
-    Minor League Hitting Coordinator
-    Minor League Equipment Coordinator
-    Minor League Infield Coordinator
-    Outfield Instructor
-    Roving Outfield Coordinator
-    Minor League Assistant Field Coordinator
-    Minor League Rehab Pitching Coordinator
-    Minor League Short Season Hitting Coordinator
-    Minor League Short Season Pitching Coordinator
-    Minor League Strength and Conditioning Coordinator
-    Head of Strength and Conditioning
-    Rehab Coordinator
-    Medical and Rehab Coordinator
-    Player Development Advisor
-    Senior Pitching Advisor
-    Life Skills Coordinator
-    Strength and Conditioning Coordinator
-    Co-Field Coordinator
-    Field, Outfield and Baserunning Coordinator
-    Rehabilitation Coach
-    Assistant Conditioning Coordinator
-    Roving Hitting Instructor
-    Roving Catching Instructor
-    Roving Instructor
-    Roving Pitching Instructor
-    Personal Assistant
-    Seasonal Strength and Conditioning Coach
-    Senior Director of Major League data and development
-    Director of Minor League Pitching Instruction
-    Education Coordinator
-    Pitching Assistant
-    Rehab Pitching Coach
-    Leadership Development Coordinator
-    Coordinator of Medical Services
-    Director of Equipment & Clubhouse Services
-    Minor League International Medical Coordinator
-    Director of Medical Services
-    Coordinator of International Player Programs
-    Director, Medical Operations
-    Director of Peak Performance
-    Medical Director
-    Assistant Director of Player Health
-    Director of Player Health
-    Director of Player Health/ Head Athletic Trainer
-    Medical Operations Coordinator
-    Assistant Director, Medical Services
-    Head Physician
-    Head Team Physician
-    Senior Advisor of Orthopedics
-    Director of Rehabilitation
-    Senior Medical Advisor
-    Director of Physical Performance
-    Director of Strength and Conditioning
-    Hand Surgery
-    Internal Medicine
-    Internist
-    Ophthalmology
-    Optometry
-    Orthopedic Consultant
-    Orthopedist
-    Physician
-    Senior Associate Orthopedist
-    Team Physician
-    Chiropractor
-    Dentist
-    Physician (E.A.P.)
-    Physician (Florida)
-    Physician (Internal)
-    Team Physician (New York)
-    Physician (Orthopedic)
-    Physician (Tampa)
-    Podiatry
-    Medical Assistant
-    Minor League Medical Coordinator
-    Spring Training Coordinator
-    Latin American Strength and Conditioning Coordinator
-    Latin American Medical Coordinator
-    Head Trainer
-    Assistant Athletic Trainer
-    Assistant Athletic Trainer/Physical Therapist
-    Manual and Performance Therapist
-    Director of Mental Conditioning
-    Athletic Trainer
-    Assistant Trainer
-    Assistant Rehabilitation Coordinator
-    Certified Athletic Trainer
-    Co-Physical Performance Coordinator
-    Trainer
-    Senior Biomechanical Engineer
-    Director of Arizona Facilities
-    Head Athletic Trainer
-    Head Certified Athletic Trainer
-    Development Coach
-    Complex Pitching Coach
-    Complex Hitting Coach
-    Assistant Certified Athletic Trainer
-    Massage Therapist
-    Physical Therapist
-    Interpreter
-    Head Physical Therapist
-    Assistant Physical Therapist
-    Sports Therapist
-    Certified Physical Therapist
-    Physical Performance Coach
-    Executive
-    Graduate Assistant
-    [MLB.com](http://mlb.com/) Reporter
-    MLB Network Personality
-    Media Member
-    Celebrity
-    Senior Vice President, Player Development
-    Coordinator, Advance Information
-    Advance Information Assistant
-    Minor League Nutrition Coordinator
-    High Performance Chef
-    Director, Pitching Research and Development
-    Amateur Scouting Analyst
-    Short-Season Hitting Coordinator
-    Assistant Minor League Strength and Conditioning Coordinator
-    Performance Physical Therapist
-    Special Consultant
-    Athletic  Development Coordinator
-    Major League Field Coordinator
-    Director of Hitting
-    Senior Baseball Advisor
-    Hitting Analytics Instructor
-    Hitting Coordinator
-    Special Assignment Scout
-    Arizona Field Operations Director
-    Biomechanics Assistant
-    Assistant, Player Development Quality Control
-    Run Prevention Coach
-    Run Production Coach
-    Major League Internal Player Stategist
-    Coaching Assistant/Replay Coordinator
-    Special Projects Coordinator
-    Hitting Consultant
-    Coordinator of Skill Development
-    International Field Coordinator
-    Minor League Sports Dietician
-    Manager, Baseball Development
-    Assistant Minor League Pitching Coordinator
-    Senior Advisor/Pitching Consultant
-    Director of Sports Performance
-    Outfield Coordinator
-    Senior Vice President/Assistant General Manager
-    Quality Control/Catching Coach
-    Coordinator
-    Latin/Cultural Development Coordinator
-    Minor League Physical Therapist
-    Assistant, Player Development
-    Camp Coordinator/Assistant, Player Development
-    Bullpen Catcher
-    Integrated Performance Coach
-    Integrated Baseball Performance Coach
-    Director of Minor League Instruction
-    Minor League Outfield Coordinator
-    Manager, Hitting Development
-    Pitching Strategist
-    Assistant Director of Baseball Development
-    Mental Performance Coordinator
-    Coach/Interpreter
+  .
+  .
+  .
     Team Operations Manager
+```
     
 
 ### 2-8. `languages`
@@ -1554,8 +1180,8 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 스탯 순위표의 기준이 되는 스탯들을 내장하고 있다. 
 
 - `leagueLeaderTypes` 목록
-    
-    `['assists']
+```    
+    ['assists']
     ['shutouts']
     ['homeRuns']
     ['sacrificeBunts']
@@ -1625,14 +1251,14 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     ['triplePlays']
     ['walksPer9Inn']
     ['winPercentage']]`
-    
+```
 
 ### 2-10. `logicalEvents`
 
 경기에서 발생하는 상황들 중 다음 상황으로 연계가되는 논리 상황들을 모아놓은 목록이다.
 
 - `logicalEvents` 목록
-    
+```
     {'code': 'sceneStateUpdate'},
     {'code': 'newBatter'},
     {'code': 'newLeftHandedBatter'},
@@ -1706,7 +1332,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     {'code': 'newVideoHighlights'},
     {'code': 'beginCommercialBreak'},
     {'code': 'endCommercialBreak'}
-    
+```  
 
 ### 2-11. `metrics`
 
@@ -1730,7 +1356,8 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 ```
 
 - `metrics` 목록
-    
+
+``` 
     releaseSpinRate
     releaseExtension
     releaseSpeed
@@ -1751,6 +1378,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     deliveryTime
     limbApexSkeletal
     distanceToCatchersMittSkeletal
+```
     
 
 ### 2-12. `pitchTypes`
@@ -1758,7 +1386,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 투수의 구종 목록이다.
 
 - `pitchTypes`에 내장된 구종 목록
-    
+```    
     {'code': 'EP', 'description': 'Eephus Pitch'},
     {'code': 'PO', 'description': 'Pitchout'},
     {'code': 'AB', 'description': 'Automatic Ball'},
@@ -1783,6 +1411,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     {'code': 'ST', 'description': 'Slutter'},
     {'code': 'SV', 'description': 'Slurve'},
     {'code': 'CS', 'description': 'Slow Curve'}]
+```
     
 
 ### 2-13 `pitchCodes`
@@ -1790,7 +1419,8 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 투수가 던지는 모든 공은 각각의 결과가 있다. 단순히 스트라이크, 볼, 안타, 범타만의 결과로 나뉘는 것이 아니다. 더 세부적으로, 이를테면 스트라이크가 헛스윙 스트라이크, 파울 스트라이크, 번트 헛스윙 스트라이크 등으로 나뉜다.
 
 - `pitchCodes`에 내장된 투구결과 유형 목록
-    
+
+```    
     {'code': 'R', 'description': 'Strike - Foul on Pitchout'} : 피치아웃한 공을 타격하여 파울(스트라이크)
     {'code': 'Y', 'description': 'Pitchout Hit Into Play - Out(s)'} : 피치아웃을 타격하여 아웃
     {'code': 'M', 'description': 'Strike - Missed Bunt'} : 번트 헛스윙으로 스트라이크
@@ -1823,12 +1453,13 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     {'code': 'N', 'description': 'No Pitch'} : 투수가 던진 공이 볼도, 스트라이크도 아닌 경우. 보통 주심의 타임아웃 이후 던진 공에 대해 무효처리 되는 것을 말한다. 그 밖의 예외적인 사유로 무효처리 되는 경우.
     {'code': 'I', 'description': 'Ball - Intentional'} : 고의로 투구한 볼
     {'code': 'V', 'description': 'Ball - Automatic'} : ?
+```
     
 
 ### 2-14. `platforms`
 
 - `platforms` 목록
-    
+```
     Web
     Android Phone
     Android Tablet
@@ -1841,6 +1472,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     Chromecast
     Apple TV
     tvOS
+```
     
 
 ### 2-15. `positions`
@@ -1886,7 +1518,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 ```
 
 - `positions` 목록
-    
+``` 
     1 Pitcher
     2 Catcher
     3 First Baseman
@@ -1924,6 +1556,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     35 Runner on First
     36 Runner on Second
     37 Runner on Third
+```
     
 
 ### 2-16. `reviewReasons`
@@ -1931,7 +1564,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 심판의 review(비디오판독?)이 이루어질 때 그 사유들을 모아놓은 목록.
 
 - `reviewReasons` 목록
-    
+```
     Close play at 1st
     Timing Play
     Force play
@@ -1955,6 +1588,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     Tag play
     Pitch result
     Catcher interference
+```
     
 
 ### 2-17. `rosterTypes`
@@ -1962,7 +1596,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 야구의 로스터에는 여러 방식이 있다. 팀의 40인 로스터도 있고, 한 경기의 로스터도 있고, 코치진 로스터도 있다. 그 로스터 유형들을 모아놓은 목록이다.
 
 - `rosterTypes` 목록
-    
+```
     40 man roster for a team
     Full roster including active and inactive players for a season
     Full roster including active and inactive players
@@ -1972,6 +1606,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     Depth chart for a team
     Roster for day of game
     Coach roster for a team
+```
     
 
 ### 2-18. `scheduleEventTypes`
@@ -1979,7 +1614,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 야구 경기와 관련된 각종 행사들의 유형 목록이다.
 
 - `scheduleEventTypes`
-    
+```    
     All-Star Weekend Event
     Team Event
     Exhibition
@@ -1999,7 +1634,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     Promotion Logo - Background Image
     Promotion Logo - Single Date Image
     Studio Event
-    
+```
 
 ### 2-19. `situationCodes`
 
@@ -2017,7 +1652,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 ```
 
 - `situationCodes` 목록
-    
+```    
     Home Games
     Away Games
     Day Games
@@ -2037,597 +1672,19 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     December
     January
     Season To Date
-    First Half
-    Second Half
-    Pre All-Star
-    Post All-Star
-    Yesterday
-    Last 7 Days
-    Last 30 Days
-    On Mondays
-    On Tuesdays
-    On Wednesdays
-    On Thursdays
-    On Fridays
-    On Saturdays
-    On Sundays
-    vs. League
-    vs. Division
-    vs. Team
-    vs. AL
-    vs. NL
-    Interleague
-    By Venue
-    Batting Left
-    Batting Right
-    vs Left
-    vs Right
-    vs Left Handed Starter
-    vs Right Handed Starter
-    vs. Ground Ball Pitcher
-    vs. Fly Ball Pitcher
-    vs. Batter
-    vs. Pitcher
-    One Run
-    Team is ahead
-    Team is behind
-    Score is tied
-    Extra Innnings
-    Last 10
-    In games won by team
-    In games lost by team
-    In tie games
-    In games following a win
-    In games following a loss
-    In games following a tie
-    Batting First
-    Batting Second
-    Batting Third
-    Batting Fourth
-    Batting Fifth
-    Batting Sixth
-    Batting Seventh
-    Batting Eighth
-    Batting Ninth
-    Leading Off
-    Pitcher
-    Catcher
-    First Base
-    Second Base
-    Third Base
-    Shortstop
-    Left Field
-    Center Field
-    Right Field
-    Outfield
-    Starter
-    Reliever
-    Designated Hitter
-    Pinch Hitter
-    Pinch Runner
-    Undefined (e.g. PH bats twice in an inning)
-    One Day of Rest
-    Two Days of Rest
-    Three Days of Rest
-    Four Days of Rest
-    Five Plus Days of Rest
-    First Inning Pitched
-    First Batter (RP Only)
-    First Inning
-    Second Inning
-    Third Inning
-    Fourth Inning
-    Fifth Inning
-    Sixth Inning
-    Seventh Inning
-    Eighth Inning
-    Ninth Inning
-    Extra Innings
-    Innings One to Six
-    Seventh or Later
-    Eighth or Later
-    Ninth or Later
-    First 75 Pitches
-    Pitches 76 and Later
-    First 100 Pitches
-    Pitches 101 and Later
-    Pitches 1-15
-    Pitches 16-30
-    Pitches 31-45
-    Pitches 46-60
-    Pitches 61-75
-    Pitches 76-90
-    Pitches 91-105
-    Pitches 106-120
-    Pitches 121 or Later
-    Empty (Not Leadoff)
-    Bases Empty
-    Bases Loaded
-    Runner at 1st
-    Runners at 1st & 2nd
-    Runners at 1st & 3rd
-    Runner at 2nd
-    Runners at 2nd & 3rd
-    Runner at 3rd
-    Runners On
-    Runners On - 2 Outs
-    Scoring Position
-    Scoring Position - 2 Outs
-    3rd, Less than 2 Outs
-    No Outs
-    One Out
-    Two Outs
-    Late / Close
-    First Pitch
-    Ahead in Count
-    Behind in Count
-    Even Count
-    Two Strikes
-    Full Count
-    Unknown or no Count
-    0-0 Count
-    0-1 Count
-    0-2 Count
-    1-0 Count
-    1-1 Count
-    1-2 Count
-    2-0 Count
-    2-1 Count
-    2-2 Count
-    3-0 Count
-    3-1 Count
-    3-2 Count
-    Home Games - first half
-    Away Games - first half
-    Day Games - first half
-    Night Games - first half
-    On Grass - first half
-    On Turf - first half
-    March - first half
-    April - first half
-    May - first half
-    June - first half
-    July - first half
-    August - first half
-    September - first half
-    October - first half
-    November - first half
-    December - first half
-    January - first half
-    February - first half
-    vs. League - first half
-    vs. Division - first half
-    vs. Team - first half
-    One Run - first half
-    Extra Innnings - first half
-    Last 10 - first half
-    vs Left Handed Starter - first half
-    vs Right Handed Starter - first half
-    In games won by team - first half
-    In games lost by team - first half
-    In tie games - first half
-    In games following a win - first half
-    In games following a loss - first half
-    In games following a tie - first half
-    Home Games - second half
-    Away Games - second half
-    Day Games - second half
-    Night Games - second half
-    On Grass - second half
-    On Turf - second half
-    March - second half
-    April - second half
-    May - second half
-    June - second half
-    July - second half
-    August - second half
-    September - second half
-    October - second half
-    November - second half
-    December - second half
-    January - second half
-    February - second half
-    vs. League - second half
-    vs. Division - second half
-    vs. Team - second half
-    One Run - second half
-    Extra Innnings - second half
-    Last 10 - first half
-    vs Left Handed Starter - first half
-    vs Right Handed Starter - first half
-    In games won by team - second half
-    In games lost by team - second half
-    In tie games - second half
-    In games following a win - second half
-    In games following a loss - second half
-    In games following a tie - second half
-    Fastball
-    Four-seam FB
-    Two-seam FB
-    Cutter
-    Sinker
-    Splitter
-    Forkball
-    Slider
-    Curveball
-    Knuckle Curve
-    Screwball
-    Gyroball
-    Changeup
-    Knuckleball
-    Eephus Pitch
-    Pitches in Zone 1
-    Pitches in Zone 2
-    Pitches in Zone 3
-    Pitches in Zone 4
-    Pitches in Zone 5
-    Pitches in Zone 6
-    Pitches in Zone 7
-    Pitches in Zone 8
-    Pitches in Zone 9
-    Pitches in Zone 11
-    Pitches in Zone 12
-    Pitches in Zone 13
-    Pitches in Zone 14
-    Fastball Zone 1
-    Fastball Zone 2
-    Fastball Zone 3
-    Fastball Zone 4
-    Fastball Zone 5
-    Fastball Zone 6
-    Fastball Zone 7
-    Fastball Zone 8
-    Fastball Zone 9
-    Fastball Zone 11
-    Fastball Zone 12
-    Fastball Zone 13
-    Fastball Zone 14
-    Two-seam FB Zone 1
-    Two-seam FB Zone 2
-    Two-seam FB Zone 3
-    Two-seam FB Zone 4
-    Two-seam FB Zone 5
-    Two-seam FB Zone 6
-    Two-seam FB Zone 7
-    Two-seam FB Zone 8
-    Two-seam FB Zone 9
-    Two-seam FB Zone 11
-    Two-seam FB Zone 12
-    Two-seam FB Zone 13
-    Two-seam FB Zone 14
-    Four-seam Fastball Zone 1
-    Four-seam Fastball Zone 2
-    Four-seam Fastball Zone 3
-    Four-seam Fastball Zone 4
-    Four-seam Fastball Zone 5
-    Four-seam Fastball Zone 6
-    Four-seam Fastball Zone 7
-    Four-seam Fastball Zone 8
-    Four-seam Fastball Zone 9
-    Four-seam Fastball Zone 11
-    Four-seam Fastball Zone 12
-    Four-seam Fastball Zone 13
-    Four-seam Fastball Zone 14
-    Cutter Zone 1
-    Cutter Zone 2
-    Cutter Zone 3
-    Cutter Zone 4
-    Cutter Zone 5
-    Cutter Zone 6
-    Cutter Zone 7
-    Cutter Zone 8
-    Cutter Zone 9
-    Cutter Zone 11
-    Cutter Zone 12
-    Cutter Zone 13
-    Cutter Zone 14
-    Splitter Zone 1
-    Splitter Zone 2
-    Splitter Zone 3
-    Splitter Zone 4
-    Splitter Zone 5
-    Splitter Zone 6
-    Splitter Zone 7
-    Splitter Zone 8
-    Splitter Zone 9
-    Splitter Zone 11
-    Splitter Zone 12
-    Splitter Zone 13
-    Splitter Zone 14
-    Gyroball Zone 1
-    Gyroball Zone 2
-    Gyroball Zone 3
-    Gyroball Zone 4
-    Gyroball Zone 5
-    Gyroball Zone 6
-    Gyroball Zone 7
-    Gyroball Zone 8
-    Gyroball Zone 9
-    Gyroball Zone 11
-    Gyroball Zone 12
-    Gyroball Zone 13
-    Gyroball Zone 14
-    Changeup Zone 1
-    Changeup Zone 2
-    Changeup Zone 3
-    Changeup Zone 4
-    Changeup Zone 5
-    Changeup Zone 6
-    Changeup Zone 7
-    Changeup Zone 8
-    Changeup Zone 9
-    Changeup Zone 11
-    Changeup Zone 12
-    Changeup Zone 13
-    Changeup Zone 14
-    Forkball Zone 1
-    Forkball Zone 2
-    Forkball Zone 3
-    Forkball Zone 4
-    Forkball Zone 5
-    Forkball Zone 6
-    Forkball Zone 7
-    Forkball Zone 8
-    Forkball Zone 9
-    Forkball Zone 11
-    Forkball Zone 12
-    Forkball Zone 13
-    Forkball Zone 14
-    Sinker Zone 1
-    Sinker Zone 2
-    Sinker Zone 3
-    Sinker Zone 4
-    Sinker Zone 5
-    Sinker Zone 6
-    Sinker Zone 7
-    Sinker Zone 8
-    Sinker Zone 9
-    Sinker Zone 11
-    Sinker Zone 12
-    Sinker Zone 13
-    Sinker Zone 14
-    Slider Zone 1
-    Slider Zone 2
-    Slider Zone 3
-    Slider Zone 4
-    Slider Zone 5
-    Slider Zone 6
-    Slider Zone 7
-    Slider Zone 8
-    Slider Zone 9
-    Slider Zone 11
-    Slider Zone 12
-    Slider Zone 13
-    Slider Zone 14
-    Curveball Zone 1
-    Curveball Zone 2
-    Curveball Zone 3
-    Curveball Zone 4
-    Curveball Zone 5
-    Curveball Zone 6
-    Curveball Zone 7
-    Curveball Zone 8
-    Curveball Zone 9
-    Curveball Zone 11
-    Curveball Zone 12
-    Curveball Zone 13
-    Curveball Zone 14
-    Knuckle Curve Zone 1
-    Knuckle Curve Zone 2
-    Knuckle Curve Zone 3
-    Knuckle Curve Zone 4
-    Knuckle Curve Zone 5
-    Knuckle Curve Zone 6
-    Knuckle Curve Zone 7
-    Knuckle Curve Zone 8
-    Knuckle Curve Zone 9
-    Knuckle Curve Zone 11
-    Knuckle Curve Zone 12
-    Knuckle Curve Zone 13
-    Knuckle Curve Zone 14
-    Knuckleball Zone 1
-    Knuckleball Zone 2
-    Knuckleball Zone 3
-    Knuckleball Zone 4
-    Knuckleball Zone 5
-    Knuckleball Zone 6
-    Knuckleball Zone 7
-    Knuckleball Zone 8
-    Knuckleball Zone 9
-    Knuckleball Zone 11
-    Knuckleball Zone 12
-    Knuckleball Zone 13
-    Knuckleball Zone 14
-    Screwball Zone 1
-    Screwball Zone 2
-    Screwball Zone 3
-    Screwball Zone 4
-    Screwball Zone 5
-    Screwball Zone 6
-    Screwball Zone 7
-    Screwball Zone 8
-    Screwball Zone 9
-    Screwball Zone 11
-    Screwball Zone 12
-    Screwball Zone 13
-    Screwball Zone 14
-    Eephus Pitch Zone 1
-    Eephus Pitch Zone 2
-    Eephus Pitch Zone 3
-    Eephus Pitch Zone 4
-    Eephus Pitch Zone 5
-    Eephus Pitch Zone 6
-    Eephus Pitch Zone 7
-    Eephus Pitch Zone 8
-    Eephus Pitch Zone 9
-    Eephus Pitch Zone 11
-    Eephus Pitch Zone 12
-    Eephus Pitch Zone 13
-    Eephus Pitch Zone 14
-    No Outs Zone 1
-    No Outs Zone 2
-    No Outs Zone 3
-    No Outs Zone 4
-    No Outs Zone 5
-    No Outs Zone 6
-    No Outs Zone 7
-    No Outs Zone 8
-    No Outs Zone 9
-    No Outs Zone 11
-    No Outs Zone 12
-    No Outs Zone 13
-    No Outs Zone 14
-    One Out Zone 1
-    One Out Zone 2
-    One Out Zone 3
-    One Out Zone 4
-    One Out Zone 5
-    One Out Zone 6
-    One Out Zone 7
-    One Out Zone 8
-    One Out Zone 9
-    One Out Zone 11
-    One Out Zone 12
-    One Out Zone 13
-    One Out Zone 14
-    Two Outs Zone 1
-    Two Outs Zone 2
-    Two Outs Zone 3
-    Two Outs Zone 4
-    Two Outs Zone 5
-    Two Outs Zone 6
-    Two Outs Zone 7
-    Two Outs Zone 8
-    Two Outs Zone 9
-    Two Outs Zone 11
-    Two Outs Zone 12
-    Two Outs Zone 13
-    Two Outs Zone 14
-    Ahead in Count Zone 1
-    Ahead in Count Zone 2
-    Ahead in Count Zone 3
-    Ahead in Count Zone 4
-    Ahead in Count Zone 5
-    Ahead in Count Zone 6
-    Ahead in Count Zone 7
-    Ahead in Count Zone 8
-    Ahead in Count Zone 9
-    Ahead in Count Zone 11
-    Ahead in Count Zone 12
-    Ahead in Count Zone 13
-    Ahead in Count Zone 14
-    Behind in Count Zone 1
-    Behind in Count Zone 2
-    Behind in Count Zone 3
-    Behind in Count Zone 4
-    Behind in Count Zone 5
-    Behind in Count Zone 6
-    Behind in Count Zone 7
-    Behind in Count Zone 8
-    Behind in Count Zone 9
-    Behind in Count Zone 11
-    Behind in Count Zone 12
-    Behind in Count Zone 13
-    Behind in Count Zone 14
-    Even Count Zone 1
-    Even Count Zone 2
-    Even Count Zone 3
-    Even Count Zone 4
-    Even Count Zone 5
-    Even Count Zone 6
-    Even Count Zone 7
-    Even Count Zone 8
-    Even Count Zone 9
-    Even Count Zone 11
-    Even Count Zone 12
-    Even Count Zone 13
-    Even Count Zone 14
-    Bases Empty Zone 1
-    Bases Empty Zone 2
-    Bases Empty Zone 3
-    Bases Empty Zone 4
-    Bases Empty Zone 5
-    Bases Empty Zone 6
-    Bases Empty Zone 7
-    Bases Empty Zone 8
-    Bases Empty Zone 9
-    Bases Empty Zone 11
-    Bases Empty Zone 12
-    Bases Empty Zone 13
-    Bases Empty Zone 14
-    Bases Loaded Zone 1
-    Bases Loaded Zone 2
-    Bases Loaded Zone 3
-    Bases Loaded Zone 4
-    Bases Loaded Zone 5
-    Bases Loaded Zone 6
-    Bases Loaded Zone 7
-    Bases Loaded Zone 8
-    Bases Loaded Zone 9
-    Bases Loaded Zone 11
-    Bases Loaded Zone 12
-    Bases Loaded Zone 13
-    Bases Loaded Zone 14
-    Runners On Zone 1
-    Runners On Zone 2
-    Runners On Zone 3
-    Runners On Zone 4
-    Runners On Zone 5
-    Runners On Zone 6
-    Runners On Zone 7
-    Runners On Zone 8
-    Runners On Zone 9
-    Runners On Zone 11
-    Runners On Zone 12
-    Runners On Zone 13
-    Runners On Zone 14
-    Scoring Position Zone 1
-    Scoring Position Zone 2
-    Scoring Position Zone 3
-    Scoring Position Zone 4
-    Scoring Position Zone 5
-    Scoring Position Zone 6
-    Scoring Position Zone 7
-    Scoring Position Zone 8
-    Scoring Position Zone 9
-    Scoring Position Zone 11
-    Scoring Position Zone 12
-    Scoring Position Zone 13
-    Scoring Position Zone 14
-    vs Left Zone 1
-    vs Left Zone 2
-    vs Left Zone 3
-    vs Left Zone 4
-    vs Left Zone 5
-    vs Left Zone 6
-    vs Left Zone 7
-    vs Left Zone 8
-    vs Left Zone 9
-    vs Left Zone 11
-    vs Left Zone 12
-    vs Left Zone 13
-    vs Left Zone 14
-    vs Right Zone 1
-    vs Right Zone 2
-    vs Right Zone 3
-    vs Right Zone 4
-    vs Right Zone 5
-    vs Right Zone 6
-    vs Right Zone 7
-    vs Right Zone 8
-    vs Right Zone 9
-    vs Right Zone 11
-    vs Right Zone 12
-    vs Right Zone 13
+   .
+   .
+   .
     vs Right Zone 14
-    
+```
+
 
 ### 2-20. `sky`
 
 경기의 날씨 유형 목록이다.
 
 - `sky` 목록
-    
+```
     Rain
     Roof Closed
     Overcast
@@ -2638,6 +1695,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     Sunny
     Partly Cloudy
     Drizzle
+```
     
 
 ### 2-21. `standingsTypes`
@@ -2645,7 +1703,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
 순위표의 기준들을 모아놓은 유형. 전반기 순위표와 후반기 순위표가 다르듯, 기준이 뭐냐에 따라 순위표는 다르기 마련이다.
 
 - `standingsTypes` 목록
-    
+```    
     Regular Season Standings
     Wild card standings
     Division Leader standings
@@ -2658,6 +1716,7 @@ API에서 취급하는 모든 스탯들을 모아놓은 것이다. 아래 예시
     Standings by Conference
     Standings by League
     Standing by Organization
+```
     
 
 ### 2-22. `statGroups`
