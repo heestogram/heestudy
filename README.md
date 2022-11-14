@@ -11,5 +11,7 @@
 <img src="https://img.shields.io/badge/R-276DC3?style=flat&logo=R&logoColor=white"/>
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/>
 <br/><br/>
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=heestogram)](https://github.com/heestogram/github-readme-stats)
+
 [![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=anthjoon11)](https://solved.ac/heestogram)<br/>
   
