@@ -1,9 +1,12 @@
 # Python MLB-StatsAPI
 
-<aside>
-💡 파이썬 환경에서 사용할 수 있는 MLB 데이터 API입니다. 유용한 API임에도 불구하고, 우리말로 번역된 마땅한 웹페이지가 없어서 직접 번역하여 해당 API를 소개하는 페이지를 만들었습니다.
 
-</aside>
+💡 
+```
+파이썬 환경에서 사용할 수 있는 MLB 데이터 API입니다. 
+유용한 API임에도 불구하고, 우리말로 번역된 마땅한 웹페이지가 없어서 
+직접 번역하여 해당 API를 소개하는 페이지를 만들었습니다.
+```
 
 [Home · toddrob99/MLB-StatsAPI Wiki](https://github.com/toddrob99/MLB-StatsAPI/wiki)
 
