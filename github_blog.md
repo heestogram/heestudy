@@ -66,7 +66,7 @@ author:
  ```
  <br>
  초기설정이 끝났다면 아래와 같은 화면이 생성된다. 좌단에는 프로필 소개가 잘 들어가 있고, 하단에는 footer에서 기입한 내용(github icon)이 보일 것이다.
- <br>
+ <br><br>
  캡쳐 화면에 보이는 최근 포스트 업로드 방법과 우측상단 카테고리들 만드는 법은 다음 단계에서 차차 확인할 수 있다.
  <br><br>
  <img src= "https://user-images.githubusercontent.com/115082062/201826923-2a2482e8-c8a6-4955-868a-651f4d48e3d7.JPG">
@@ -155,3 +155,46 @@ html {
   -ms-text-size-adjust: 100%;
 }
 ```
+<br>
+
+## 4. 파비콘 추가하기
+
+<br>
+웹사이트 상단 바에 표시되는 아이콘을 파비콘이라고 한다. 파비콘을 만들기 위해 이 사이트에 접속한다. https://realfavicongenerator.net/
+<br><br>
+아래 웹사이트에서 'select your favicon image'를 클릭한다. 그리고 내가 원하는 이미지를 갖고온다.
+<br><br>
+<img src = "https://user-images.githubusercontent.com/115082062/201844820-440d43d5-6b32-480d-80e5-e97dbeb2f82d.JPG">
+<br><br>
+그럼 아래와 같이 내가 만든 파비콘의 코드가 나올 것이다. 우선 1. Download your package에서 파비콘 이미지 파일들을 다운 받는다.
+<br><br>
+github.io 폴더 -> assets 폴더 -> logo.ico 폴더를 생성하여 이곳에 파비콘 이미지 파일들을 붙여넣는다.
+<br><br>
+그리곤 제공된 코드를 복사하자.
+<br><br>
+<img src = "https://user-images.githubusercontent.com/115082062/201845237-ee469c41-3a37-4f73-8cd4-49713f559844.JPG">
+<br><br>
+github.io 폴더 -> &#95;includes 폴더 -> &#95;head 폴더 -> custom.html
+<br><br>
+복사한 코드를 insert하라는 부분 바로 밑에 붙여넣어주면 된다. 이 때 아래 코드처럼 herf에 {{site.baseurl}}/assets/logo.ico 을 추가해주어야 한다.
+<br><br>
+
+```html
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="60x60" href="{{site.baseurl}}/assets/logo.ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/assets/logo.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/assets/logo.ico/favicon-16x16.png">
+<link rel="manifest" href="{{site.baseurl}}/assets/logo.ico/site.webmanifest">
+<link rel="mask-icon" href="{{site.baseurl}}/assets/logo.ico/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+```
+
+<br>
+
+
+
