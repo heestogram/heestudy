@@ -4,7 +4,7 @@
 ## 1. 기본 정보 변경
 <br>
 github.io 폴더 -> &#95;config.yml
-
+<br>
 <br>
 가장 기본적인 초기 정보 setting이다.
 <br>
@@ -71,13 +71,14 @@ author:
  <br><br>
  <img src= "https://user-images.githubusercontent.com/115082062/201826923-2a2482e8-c8a6-4955-868a-651f4d48e3d7.JPG">
 
- ## 2. 카테고리 만들기
+ ## 2. 상단 메뉴바 만들기
  <br>
  github.io 폴더 -> &#95;data 폴더 -> navigation.yaml 파일
- <br>
- 무척이나 간단하다. 생성하고 싶은 카테고리의 title을 적어주고 url을 설정해주면 된다. 이 때 주석처리는 당연히 풀어줘야 한다.<br>
- 
- <br>
+ <br><br>
+ 무척이나 간단하다. 생성하고 싶은 메뉴의 title을 적어주고 url을 설정해주면 된다. 이 때 주석처리는 당연히 풀어줘야 한다.<br><br>
+ 아래처럼 작성하면 "About Me"라는 타이틀에 /me/라는 url을 걸어놓은 것이 되는데, &#95;pages에 들어가서 md파일을 하나 생성한 후 permalink를 /me/로 수정해주면 "About Me' 메뉴를 눌렀을 때 해당 md파일로 링크가 되는 것이다.
+ <br><br>
+
 ```yml
 # main links
 main:
@@ -85,12 +86,72 @@ main:
     url: /me/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Sample Posts"
+  # - title: "Sample Posts"
   #   url: /year-archive/  #안 보이게 하고 싶은 부분은 주석처리
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
 ```
- 
+<br><br>
+github.io 폴더 -> &#95;pages 폴더 <br><br>
+이곳에서 about-me.md라는 파일 하나를 만들고 아래와 같이 작성해 보겠다.
+<br>
+```yml
+---
+permalink: /me/
+title: "About Me"
+toc: true
+---
+반갑습니다.
+```
+<br>
+상단메뉴 'About Me'를 클릭하면 아래와 같은 창이 열리는 것을 확인할 수 있다.
+<br><br>
+<img src= "https://user-images.githubusercontent.com/115082062/201839699-fc8704c9-4ef3-47ac-a955-1b79eb713690.JPG">
+<br>
+<br>
 
+## 3. 너비와 폰트 크기 수정
+<br>
+github.io 폴더 -> &#95;sass 폴더 -> &#95;minimal-mistakes 폴더 -> &#95;variables.scss
+<br><br>
+&#95;variables.scss 파일의 가장 밑쪽으로 가서 너비를 알맞게 수정해준다.<br>
+
+```scss
+   Grid
+   ========================================================================== */
+
+$right-sidebar-width-narrow: 100px !default;
+$right-sidebar-width: 200px !default;
+$right-sidebar-width-wide: 250px !default;
+```
+<br>
+minimal-mistakes의 default 폰트 크기는 꽤 커서 읽기에 불편함이 있다. 폰트 사이즈를 줄여보도록 하자.
+<br><br>
+github.io 폴더 -> &#95;sass 폴더 -> &#95;minimal-mistakes 폴더 -> &#95;reset.scss
+<br><br>
+
+```scss
+html {
+  /* apply a natural box layout model to all elements */
+  box-sizing: border-box;
+  background-color: $background-color;
+  font-size: 14px; # 이 부분 수정
+
+  @include breakpoint($medium) {
+    font-size: 16px; # 이 부분 수정
+  }
+
+  @include breakpoint($large) {
+    font-size: 16px; # 이 부분 수정
+  }
+
+  @include breakpoint($x-large) {
+    font-size: 16px; # 이 부분 수정
+  }
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+```
