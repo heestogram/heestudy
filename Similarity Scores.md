@@ -1,7 +1,5 @@
 # Similarity Scores로 닮은꼴 선수 찾아내기
 
-> **목차**
-> 
 
 ### 1. intro
 
@@ -69,15 +67,15 @@
 
 ### 3. MLB의 Similarity Scores 맛보기
 
-![dkdk.jpg](Similarity%20Scores%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A1%E1%86%B1%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%81%E1%85%A9%E1%86%AF%20%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%20%E1%84%8E%E1%85%A1%E1%86%BD%E1%84%8B%E1%85%A1%E1%84%82%E1%85%A2%E1%84%80%E1%85%B5%207b43f746119e4f3599d85b9a542e75bf/dkdk.jpg)
+<IMG SRC="https://user-images.githubusercontent.com/115082062/204955377-b287c200-9d3c-4443-97d7-2d0ed4e69866.jpg">
 
 베이스볼 레퍼런스에선 선수 개개인별로 Similarity Scores를 제공하고 있다. 현 MLB를 대표하는 타자 격인 마이크 트라웃의 지표를 보면, 가장 닮은 선수는 20세기 초를 풍미한 중견수 핵 윌슨이다. 
 
 그런데 통산 홈런이 244개인  핵 윌슨은 커리어 동안 트라웃만큼의 펀치력을 가졌다고 보긴 어렵다. 그럼 왜 두 선수가 닮은 꼴로 묶인 것일까?
 
 해답은 간단하다. 통산 커리어를 기준으로 Similarity Scores를 산출해서 그렇다. 트라웃은 아직 29세의 젊은 선수고, 커리어동안 더 풍부한 누적스탯을 기록할 수 있다. 비교대상을 은퇴선수로 잡기엔 무리가 있어보인다. 그럼에도 불구하고, 은퇴선수와 비교를 해야한다면 그 선수의 29세까지의 스탯을 기준으로 Similarity Scores를 산출하면 될 것이다. 때문에 베이스볼 레퍼런스에선 동 나이대 Similarity Scores도 제공하고 있다.
-
-![dkdkdk.jpg](Similarity%20Scores%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A1%E1%86%B1%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%81%E1%85%A9%E1%86%AF%20%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%20%E1%84%8E%E1%85%A1%E1%86%BD%E1%84%8B%E1%85%A1%E1%84%82%E1%85%A2%E1%84%80%E1%85%B5%207b43f746119e4f3599d85b9a542e75bf/dkdkdk.jpg)
+  
+<img src="https://user-images.githubusercontent.com/115082062/204955425-93842654-c50f-46b4-b1e4-2b340ec7886d.jpg">
 
 현재 트라웃의 나이인 29세를 기준으로 순위를 다시 매기면, 통산 홈런 407개의 1333타점을 기록한 듀크 스나이더가 1위에 랭크해있다. 즉, 29세의 스나이더가 현재 트라웃과 가장 유사한 선수라는 의미이다. 우리에게 익숙한 ‘괴수’ 블라디미르 게레로는 3위에 랭크했다.
 
@@ -87,8 +85,17 @@
 
 때문에, 필자는 **엑셀로 이 스코어를 계산하는 툴을 만들고**, **국내 선수들의 Similarity Scores를 직접 살펴보기로** 했다.
 
-[similarity scores 계산기.cell](Similarity%20Scores%E1%84%85%E1%85%A9%20%E1%84%83%E1%85%A1%E1%86%B1%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%81%E1%85%A9%E1%86%AF%20%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%20%E1%84%8E%E1%85%A1%E1%86%BD%E1%84%8B%E1%85%A1%E1%84%82%E1%85%A2%E1%84%80%E1%85%B5%207b43f746119e4f3599d85b9a542e75bf/similarity_scores_%EA%B3%84%EC%82%B0%EA%B8%B0.cell)
 
-스탯티즈에서 2022시즌 활약한 선수들의 정보를 BeautifulSoup 모듈을 통해 크롤링해왔고, 이 정보를 시트에 붙여넣어 자동계산기를 만들었다.
+스탯티즈에서 2022시즌 활약한 선수들의 정보를 `BeautifulSoup` 모듈을 통해 크롤링해왔고, 이 정보를 시트에 붙여넣어 자동계산기를 만들었다.
+  
+<img src="https://user-images.githubusercontent.com/115082062/204955795-f105cf23-c651-4c11-8f4a-f1de102887fa.png">
+메모표시가 된 곳에 원하는 선수의 이름을 입력하면, similarity socres가 자동으로 계산된다.
+  
+<img src="https://user-images.githubusercontent.com/115082062/204955967-1e6986ea-19e0-44fe-9bac-e571ff8cfda8.png">
+위 사진처럼 해당 선수와 유사한 선수 top10을 자동으로 출력해준다.
 
-아래 깃허브 링크로 이동하면
+아래 깃허브 링크로 이동하면 내가 만든 Similarity Scores 계산기 엑셀파일을 볼 수 있다.
+  
+[깃허브 링크](https://github.com/heestogram/heestudy/blob/main/similarity%20scores%20%EA%B3%84%EC%82%B0%EA%B8%B0.xlsx)
+  
+  
