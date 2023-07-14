@@ -1,3 +1,3 @@
-project 기록 용도
+project 아카이빙 용도
   
 
