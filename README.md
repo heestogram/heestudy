@@ -2,4 +2,4 @@
 
 ### Since 2023
 
-### Contests, KUBIG Projects, Project in Undergraduate Course, etc.
+### Contests, KUBIG Projects, Projects in Undergraduate Courses, etc.
