@@ -22,9 +22,9 @@ class YoloLoss(nn.Module):
         B is number of boxes (in paper 2),
         C is number of classes (in paper and VOC dataset is 20),
         """
-        self.S = S
-        self.B = B
-        self.C = C
+        self.S = S # grid cell의 개수
+        self.B = B # 예측하려는 bounding box의 개수
+        self.C = C # class의 개수
 
         # These are from Yolo paper, signifying how much we should
         # pay loss for no object (noobj) and the box coordinates (coord)
