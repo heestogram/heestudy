@@ -13,6 +13,7 @@ Tuple is structured by (kernel_size, filters, stride, padding)
 List is structured by tuples and lastly int with number of repeats
 """
 
+
 architecture_config = [
     (7, 64, 2, 3),
     "M",
