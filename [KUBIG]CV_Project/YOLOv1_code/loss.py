@@ -72,12 +72,13 @@ class YoloLoss(nn.Module):
         # box_prediction과 비교할 실제 box_targets 지정
         box_targets = exists_box * target[..., 21:25]
 
-        # Take sqrt of width, height of boxes to ensure that
+        # w,h(2:4)에는 root를 취함
         box_predictions[..., 2:4] = torch.sign(box_predictions[..., 2:4]) * torch.sqrt(
             torch.abs(box_predictions[..., 2:4] + 1e-6)
         )
         box_targets[..., 2:4] = torch.sqrt(box_targets[..., 2:4])
 
+        # prediction과 target의 mse
         box_loss = self.mse(
             torch.flatten(box_predictions, end_dim=-2),
             torch.flatten(box_targets, end_dim=-2),
@@ -88,6 +89,8 @@ class YoloLoss(nn.Module):
         # ==================== #
 
         # pred_box is the confidence score for the bbox with highest IoU
+        # 25:26은 1st Bbox의 confidence score, 20:21은 2nd Bbox의 confidence score
+        # grid cell에 object가 존재할 경우 confidence loss
         pred_box = (
             bestbox * predictions[..., 25:26] + (1 - bestbox) * predictions[..., 20:21]
         )
@@ -107,6 +110,7 @@ class YoloLoss(nn.Module):
         #    torch.flatten((1 - exists_box) * target[..., 20:21], start_dim=1),
         #)
 
+        # grid cell에 object가 존재하지 않을 경우 confidence loss
         no_object_loss = self.mse(
             torch.flatten((1 - exists_box) * predictions[..., 20:21], start_dim=1),
             torch.flatten((1 - exists_box) * target[..., 20:21], start_dim=1),
