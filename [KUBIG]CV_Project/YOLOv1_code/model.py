@@ -36,6 +36,7 @@ architecture_config = [
 ]
 
 
+# 일반 CNN block 만드는 class
 class CNNBlock(nn.Module):
     def __init__(self, in_channels, out_channels, **kwargs):
         super(CNNBlock, self).__init__()
@@ -52,19 +53,19 @@ class Yolov1(nn.Module):
         super(Yolov1, self).__init__()
         self.architecture = architecture_config
         self.in_channels = in_channels
-        self.darknet = self._create_conv_layers(self.architecture)
+        self.darknet = self._create_conv_layers(self.architecture) #해당 framework 이름이 darknet
         self.fcs = self._create_fcs(**kwargs)
 
     def forward(self, x):
-        x = self.darknet(x)
-        return self.fcs(torch.flatten(x, start_dim=1))
+        x = self.darknet(x) #conv layer 통과
+        return self.fcs(torch.flatten(x, start_dim=1)) #fc layer 통과
 
     def _create_conv_layers(self, architecture):
         layers = []
         in_channels = self.in_channels
 
-        for x in architecture:
-            if type(x) == tuple:
+        for x in architecture: #config에 작성한대로 layer 쌓는 반복문
+            if type(x) == tuple: #config에서 tuple 형식이면 일반 CNN block
                 layers += [
                     CNNBlock(
                         in_channels, x[1], kernel_size=x[0], stride=x[2], padding=x[3],
@@ -72,10 +73,10 @@ class Yolov1(nn.Module):
                 ]
                 in_channels = x[1]
 
-            elif type(x) == str:
+            elif type(x) == str: # config에서 문자열, 즉 M이면 Max Pooling
                 layers += [nn.MaxPool2d(kernel_size=(2, 2), stride=(2, 2))]
 
-            elif type(x) == list:
+            elif type(x) == list: # config에서 list이면 마지막 요소(2)가 반복 횟수이므로 해당 layer를 num_repeats만큼 반복
                 conv1 = x[0]
                 conv2 = x[1]
                 num_repeats = x[2]
@@ -101,8 +102,9 @@ class Yolov1(nn.Module):
                     ]
                     in_channels = conv2[1]
 
-        return nn.Sequential(*layers)
+        return nn.Sequential(*layers) #지금까지 쌓은 layer, sequantial로 containing
 
+    # 비교적 간단한 fc layer
     def _create_fcs(self, split_size, num_boxes, num_classes):
         S, B, C = split_size, num_boxes, num_classes
 
