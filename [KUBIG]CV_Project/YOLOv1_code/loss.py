@@ -38,13 +38,22 @@ class YoloLoss(nn.Module):
         predictions = predictions.reshape(-1, self.S, self.S, self.C + self.B * 5)
 
         # Calculate IoU for the two predicted bounding boxes with target bbox
+        # 0~19: class probabilities
+        # 20: class score
+        # 21~25: 1st Bbox's x,y,w,h
+        # 26~30: 2nd Bbox's x,y,w,h
+        # intersection_over_union: IoU 계산해주는 함수 from utils.py
         iou_b1 = intersection_over_union(predictions[..., 21:25], target[..., 21:25])
         iou_b2 = intersection_over_union(predictions[..., 26:30], target[..., 21:25])
+        # cat으로 두 IoU를 행 방향(dim=0) 결합
         ious = torch.cat([iou_b1.unsqueeze(0), iou_b2.unsqueeze(0)], dim=0)
 
         # Take the box with highest IoU out of the two prediction
         # Note that bestbox will be indices of 0, 1 for which bbox was best
+        # iou_maxes는 IoU가 최대인 tensor, bestbox는 그 index(0 or 1)
         iou_maxes, bestbox = torch.max(ious, dim=0)
+        # 해당 grid cell에 ground truth가 존재하는지 확인.
+        # 존재한다면 exists_box=1, 아니라면 0
         exists_box = target[..., 20].unsqueeze(3)  # in paper this is Iobj_i
 
         # ======================== #
@@ -54,12 +63,13 @@ class YoloLoss(nn.Module):
         # Set boxes with no object in them to 0. We only take out one of the two 
         # predictions, which is the one with highest Iou calculated previously.
         box_predictions = exists_box * (
-            (
-                bestbox * predictions[..., 26:30]
+            ( # 두 Bbox 중 더 큰 IoU인 Bbox를 box_prediction으로 만드는 과정
+                bestbox * predictions[..., 26:30] 
                 + (1 - bestbox) * predictions[..., 21:25]
             )
         )
 
+        # box_prediction과 비교할 실제 box_targets 지정
         box_targets = exists_box * target[..., 21:25]
 
         # Take sqrt of width, height of boxes to ensure that
@@ -112,10 +122,13 @@ class YoloLoss(nn.Module):
         # ================== #
 
         class_loss = self.mse(
+            # 예측한 class probabilities
             torch.flatten(exists_box * predictions[..., :20], end_dim=-2,),
+            # 실제 class probabilities
             torch.flatten(exists_box * target[..., :20], end_dim=-2,),
         )
 
+        # 앞서 구한 값 바탕으로 최종적인 loss 계산
         loss = (
             self.lambda_coord * box_loss  # first two rows in paper
             + object_loss  # third row in paper
