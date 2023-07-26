@@ -16,16 +16,16 @@ class VOCDataset(torch.utils.data.Dataset):
         self.img_dir = img_dir
         self.label_dir = label_dir
         self.transform = transform
-        self.S = S
-        self.B = B
-        self.C = C
+        self.S = S # S*S grid cell
+        self.B = B # Bbox 개수
+        self.C = C # class 개수
 
     def __len__(self):
         return len(self.annotations)
 
     def __getitem__(self, index):
         label_path = os.path.join(self.label_dir, self.annotations.iloc[index, 1])
-        boxes = []
+        boxes = [] # ground truth box의 x,y,w,h 좌표 저장
         with open(label_path) as f:
             for label in f.readlines():
                 class_label, x, y, width, height = [
@@ -44,12 +44,16 @@ class VOCDataset(torch.utils.data.Dataset):
             image, boxes = self.transform(image, boxes)
 
         # Convert To Cells
+        # label_matrix는 grid cell과 동일한 7*7*30 크기
         label_matrix = torch.zeros((self.S, self.S, self.C + 5 * self.B))
+
+        # ground truth boxes를 순회
         for box in boxes:
             class_label, x, y, width, height = box.tolist()
             class_label = int(class_label)
 
             # i,j represents the cell row and cell column
+            # 7*7 grid cell 중 몇 행, 몇 열인지 i, j가 알려줌
             i, j = int(self.S * y), int(self.S * x)
             x_cell, y_cell = self.S * x - j, self.S * y - i
 
@@ -65,6 +69,7 @@ class VOCDataset(torch.utils.data.Dataset):
             width_pixels/cell_pixels, simplification leads to the
             formulas below.
             """
+
             width_cell, height_cell = (
                 width * self.S,
                 height * self.S,
@@ -74,17 +79,19 @@ class VOCDataset(torch.utils.data.Dataset):
             # Note: This means we restrict to ONE object
             # per cell!
             if label_matrix[i, j, 20] == 0:
-                # Set that there exists an object
+                # ground truth이기에 confidence score=1
                 label_matrix[i, j, 20] = 1
 
-                # Box coordinates
+                # Box coordinates 
                 box_coordinates = torch.tensor(
                     [x_cell, y_cell, width_cell, height_cell]
                 )
 
+                # 좌표 정보 저장
                 label_matrix[i, j, 21:25] = box_coordinates
 
                 # Set one hot encoding for class_label
+                # ground truth이기에 class probability=1
                 label_matrix[i, j, class_label] = 1
 
         return image, label_matrix
