@@ -16,13 +16,16 @@ for foldername in os.listdir(directory):
             annotations = data['ANNOTATION_INFO']
             txt_path = os.path.join('labels',filename.replace('.json','.txt'))
 
+            # 저장할 때도 class 별로 폴더 달리 해서 저장하는 게 나은가?
+            # 아니면 일괄적으로 모아놓는 게 나은가?
             with open(txt_path, 'w') as f:
                 for ann in annotations:
                     class_id = class_num
                     img_width = data['IMAGE_INFO']['IMAGE_WIDTH']
                     img_height = data['IMAGE_INFO']['IMAGE_HEIGHT']
 
-                    #points가 의미하는 게 뭐지?
+                    # points에 있는 좌표 4개가 각각 뭐지?
+                    # points가 4개가 아니라 2개로 이루어진 애들도 있는데 뭐지
                     x_center = abs(ann['POINTS'][0][0] + ann['POINTS'][0][2]) / 2.0 / img_width
                     y_center = abs(ann['POINTS'][0][1] + ann['POINTS'][0][3]) / 2.0 / img_height
                     width = abs(ann['POINTS'][0][2] - ann['POINTS'][0][0]) / img_width
