@@ -35,3 +35,4 @@ for foldername in os.listdir(directory):
                         f.write(f"{class_id} {x_center} {y_center} {width} {height}\n")
                     except IndexError:
                         pass
+    class_num+=1
