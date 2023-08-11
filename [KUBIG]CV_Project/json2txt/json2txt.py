@@ -26,10 +26,12 @@ for foldername in os.listdir(directory):
 
                     # points에 있는 좌표 4개가 각각 뭐지?
                     # points가 4개가 아니라 2개로 이루어진 애들도 있는데 뭐지
-                    x_center = abs(ann['POINTS'][0][0] + ann['POINTS'][0][2]) / 2.0 / img_width
-                    y_center = abs(ann['POINTS'][0][1] + ann['POINTS'][0][3]) / 2.0 / img_height
-                    width = abs(ann['POINTS'][0][2] - ann['POINTS'][0][0]) / img_width
-                    height = abs(ann['POINTS'][0][3] - ann['POINTS'][0][1]) / img_height
+                    try:
+                        x_center = abs(ann['POINTS'][0][0] + ann['POINTS'][0][2]) / 2.0 / img_width
+                        y_center = abs(ann['POINTS'][0][1] + ann['POINTS'][0][3]) / 2.0 / img_height
+                        width = abs(ann['POINTS'][0][2] - ann['POINTS'][0][0]) / img_width
+                        height = abs(ann['POINTS'][0][3] - ann['POINTS'][0][1]) / img_height
 
-                    f.write(f"{class_id} {x_center} {y_center} {width} {height}\n")
-    class_num+=1
+                        f.write(f"{class_id} {x_center} {y_center} {width} {height}\n")
+                    except IndexError:
+                        pass
