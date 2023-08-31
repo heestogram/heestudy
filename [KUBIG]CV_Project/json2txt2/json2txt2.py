@@ -1,7 +1,7 @@
 import json
 import os
 
-os.chdir('[KUBIG]CV_Project/json2txt')
+os.chdir('[KUBIG]CV_Project/json2txt2')
 
 directory = 'annotations'
 
